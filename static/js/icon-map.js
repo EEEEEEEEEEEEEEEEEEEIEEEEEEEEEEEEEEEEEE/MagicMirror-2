@@ -1,4 +1,6 @@
 var weatherIcons = {
+	"mostly-sunny": "",
+	"sunny": "",
 	"clear-day": "wi wi-day-sunny",
 	"clear-night": "wi wi-night-clear",
 	"rain": "wi wi-rain",
@@ -7,12 +9,13 @@ var weatherIcons = {
 	"wind": "wi wi-cloudy-windy",
 	"fog": "wi wi-fog",
 	"cloudy": "wi wi-cloudy",
+	"partly-cloudy": "",
 	"partly-cloudy-day": "wi wi-day-cloudy",
 	"partly-cloudy-night": "wi wi-night-partly-cloudy",
+	"mostly-cloudy": "wi wi-cloudy",
 	"thunderstorm": "wi wi-thunderstorm",
 	"thunderstorms": "wi wi-thunderstorm",
 	"scattered-thunderstorms": "wi wi-storm-showers",
-	"mostly-cloudy": "wi wi-cloudy",
 	"F": "wi wi-fahrenheit",
 	"C": "wi wi-celsius"
 }
