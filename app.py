@@ -25,6 +25,9 @@ def get_weather(location):
 	result = weatherapi.get_weather_by_name(location)
 	return jsonify(result)
 
+@app.route('/get_quote')
+def get_quote():
+	return jsonify([{}])
 
 @app.route('/get_news_headlines')
 def get_news_headlines():

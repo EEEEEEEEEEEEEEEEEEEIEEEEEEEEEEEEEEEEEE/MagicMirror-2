@@ -1,4 +1,4 @@
-from weather import Weather
+import requests
 
 ####################### BEGIN: model definition #######################
 # REFERENCE: https://developer.yahoo.com/weather/?dataTypeRadios=JSON
@@ -9,35 +9,17 @@ class WeatherObject(object):
     def last_build_date(self):
         return self._weather_data['lastBuildDate']
 
-    def title(self):
-        return self._weather_data['title']
-
-    def description(self):
-        return self._weather_data['description']
-
-    def language(self):
-        return self._weather_data['language']
-
     def astronomy(self):
         return self._weather_data['astronomy']
 
     def atmosphere(self):
         return self._weather_data['atmosphere']
 
-    def image(self):
-        return self._weather_data['image']
-
     def condition(self):
         return self._weather_data['item']['condition']
 
     def forecast(self):
         return self._weather_data['item']['forecast']
-
-    def latitude(self):
-        return self._weather_data['item']['lat']
-
-    def longitude(self):
-        return self._weather_data['item']['lng']
 
     def location(self):
         return self._weather_data['location']
@@ -54,9 +36,11 @@ class WeatherObject(object):
 class Weather(object):
     URL = "http://query.yahooapis.com/v1/public/yql"
 
-    def lookup_by_location(self, location):
-        url = "%s?q=select* from weather.forecast " \
-              "where woeid in (select woeid from geo.places(1) where text='%s')&format=json" % (self.URL, location)
+    def lookup_by_location(self, location, celsius=True):
+        url = "%s?format=json&q=select* from weather.forecast " \
+              "where woeid in (select woeid from geo.places(1) where text='%s')" % (self.URL, location)
+        if celsius:
+        	url = url + " and u='c'"
         results = self._call(url)
         return results
 
@@ -73,8 +57,8 @@ class Weather(object):
 weather = Weather()
 
 # lookup via location name
-def get_weather_by_name(location_name):
-    location = weather.lookup_by_location(location_name)
+def get_weather_by_name(location_name, celsius=True):
+    location = weather.lookup_by_location(location_name, celsius)
     # currently
     condi = location.condition()
     currently = {

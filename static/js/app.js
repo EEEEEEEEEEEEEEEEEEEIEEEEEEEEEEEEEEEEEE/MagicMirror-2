@@ -58,7 +58,7 @@
 			$('.current-temp-units').addClass(weatherIcons[weather.units.temperature]);
 			$('.current-weather-icon').addClass(weatherIcons[weather.currently.icon]);
 			$('.current-weather-text').html(Math.round(weather.currently.text));
-			$('.prob-rain').html(Math.round(weather.daily.data[0].precipProbability * 100));
+			//$('.prob-rain').html(Math.round(weather.daily.data[0].precipProbability * 100));
 
 			console.log(weather);
 			// hourly change weather
