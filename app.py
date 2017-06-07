@@ -52,5 +52,9 @@ def get_news_headlines():
 
 	return jsonify({'headlines': results})
 
+@app.route('/get_todo')
+def get_todo():
+	return jsonify({"hourly":[{"begin_time":"12:00", "end_time":"13:00", "content":"testing"}]})
+
 if __name__ == '__main__':
 	app.run(debug=DEBUG, port=PORT, host=HOST)

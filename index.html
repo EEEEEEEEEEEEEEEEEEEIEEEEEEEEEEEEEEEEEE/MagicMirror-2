@@ -10,12 +10,18 @@
 </head>
 <body>
 	<div class="container">
+		<!-- date/time related -->
 		<div class="top left">
 			<div class="full-time">
 				<span class="timer-hour"></span><span class="time-colon">:</span><span class="timer-min"></span><span class="timer-suffix"></span>
 			</div>
 			<div class="full-date"></div>
+			<hr class="datetime-separator">
+			<div class="hourly-todo-container"></div>
+			<hr class="datetime-separator">
+			<div class="daily-todo-container"></div>
 		</div>
+		<!-- weather related -->
 		<div class="top right weather-container">
 			<div class="current-temp-container">
 				<span class="current-temp"></span> <span class="current-temp-units"></span> <span class="current-weather-icon"></span>
@@ -28,12 +34,14 @@
 			<hr class="weather-separator">
 			<div class="weekly-forecast-container"></div>
 		</div>
+		<!-- quote -->
 		<div class="lower-third center-hor">
 			<hr class="marquee-divider-top">
 			<div class="quote-content"></div>
 			<div class="quote-author"></div>
 			<hr class="marquee-divider-bottom">
 		</div>
+		<!-- news? -->
 		<div class="bottom center-hor marquee-container">
 			<ul class="marquee"></ul>
 		</div>

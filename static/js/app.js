@@ -58,7 +58,6 @@
 			$('.current-temp-units').addClass(weatherIcons[weather.units.temperature]);
 			$('.current-weather-icon').addClass(weatherIcons[weather.currently.icon]);
 			$('.current-weather-text').html(weather.currently.text);
-			console.log(weather.currently.text)
 			//$('.prob-rain').html(Math.round(weather.daily.data[0].precipProbability * 100));
 
 			console.log(weather);
@@ -132,10 +131,31 @@
 			});
 		}
 
+		// TODO
+		function getTodo() {
+			$.get("/get_todo", function (todo){
+				console.log(todo)
+
+				// hourly todo
+				todo.hourly.forEach(function(item){
+					$('.hourly-todo-container').append("<div class='hourly-todo'></div>");
+					$('.hourly-todo').last().append("<span class='hourly-todo-label'>" + item.begin_time + " </span>");
+					$('.hourly-todo').last().append("<span class='hourly-todo-label'> ~ " + item.end_time + " </span>");
+					$('.hourly-todo').last().append("<span> " + item.content + "</span>");
+				});
+				// daily todo
+
+				setTimeout(function () {
+						getTodo()
+					}, 1000*60*30); // refresh every 30 min
+			});
+		}
+
 		startTime();
 		getWeather();
 		getQuote();
 		getNews();
+		getTodo();
 	});
 
 })();

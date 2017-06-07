@@ -9,3 +9,9 @@ proxies = {
 
 # get whose twitters
 twitters = "judourili,tinycarebot,selfcare_bot,magicrealismbot".split(",")
+
+# icloud info
+icloud = {
+	"username":"",
+	"password":
+}
