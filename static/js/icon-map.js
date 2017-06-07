@@ -9,7 +9,7 @@ var weatherIcons = {
 	"wind": "wi wi-cloudy-windy",
 	"fog": "wi wi-fog",
 	"cloudy": "wi wi-cloudy",
-	"partly-cloudy": "",
+	"partly-cloudy": "wi wi-day-cloudy",
 	"partly-cloudy-day": "wi wi-day-cloudy",
 	"partly-cloudy-night": "wi wi-night-partly-cloudy",
 	"mostly-cloudy": "wi wi-cloudy",

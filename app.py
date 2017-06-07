@@ -3,8 +3,10 @@ from flask import Flask, render_template, send_from_directory, jsonify
 import urllib2
 import xml.etree.ElementTree as ET
 import subprocess
+import random
 
-from utils import weatherapi
+import config
+from utils import weatherapi, twitterbot
 
 app = Flask(__name__, static_url_path='/static', template_folder='./')
 
@@ -20,14 +22,21 @@ def index():
 def serve_static(path):
 	return send_from_directory('static', path)
 
-@app.route('/get_weather/<location>')
-def get_weather(location):
+@app.route('/get_weather')
+def get_weather():
+	location = config.location
 	result = weatherapi.get_weather_by_name(location)
 	return jsonify(result)
 
 @app.route('/get_quote')
 def get_quote():
-	return jsonify([{}])
+	who = random.choice(config.twitters)
+	result = twitterbot.getTweet(who, config.proxies)
+	if result.get("error"):
+		print "get twitter of", who, "error:", result["error"]
+		return jsonify({})
+	else:
+		return jsonify(result)
 
 @app.route('/get_news_headlines')
 def get_news_headlines():
