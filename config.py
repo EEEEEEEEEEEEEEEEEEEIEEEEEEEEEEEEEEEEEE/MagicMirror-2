@@ -8,4 +8,4 @@ proxies = {
 }
 
 # get whose twitters
-twitters = "judourili,tinycarebot".split(",")
+twitters = "judourili,tinycarebot,selfcare_bot,magicrealismbot".split(",")

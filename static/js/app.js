@@ -124,10 +124,10 @@
 
 					// https://jsfiddle.net/ymdahi/sj2Lcq6x/
 					$('.marquee').marquee({
-		        duration: 8000,
-		        duplicate: false
-			    });
-				}, 1000);
+				        duration: 8000,
+				        duplicate: false
+					    });
+						}, 1000);
 				
 			});
 		}
